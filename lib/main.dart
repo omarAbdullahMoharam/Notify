@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'screens/welcome_screen.dart';
 
+// [To Do] Custom Painter WallPaper Screen
 void main() {
-  runApp(const MyApp());
+  runApp(const Notify());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Notify extends StatelessWidget {
+  const Notify({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Notify',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xffFF8383)),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xffFF8383),
+        ),
         useMaterial3: true,
       ),
       home: const WelcomeScreen(),
