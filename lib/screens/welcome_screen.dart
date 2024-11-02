@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:notify/helpers/constatns.dart';
-import 'package:notify/screens/home_screen.dart';
+import 'package:notify/components/custom_texfield.dart';
+
+import '../components/custom_victor_image.dart';
+import '../components/custom_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -19,78 +21,27 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 Image.asset(
                     'assets/images/a3fd26bf-1396-47af-8ca2-dd46631815c8.jpg'),
-                const SizedBox(height: 50),
-                const Text(
-                  'Create free notes & collaborate \nwith your team',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Poppins',
-                  ),
-                  maxLines: 2,
-                  textAlign: TextAlign.center,
+                const SizedBox(height: 70),
+                const CustomTexfield(
+                  txt: 'Create free notes & collaborate \nwith your team',
+                  fontSize: 20,
+                  mxLines: 2,
+                  fontWeight: FontWeight.w600,
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Lorem ipsum dolor sit amet, consectetur \nadipiscing elit. Aenean est elit, lobortis a mattis\n vel, aliquet ut ligula.',
-                  style: TextStyle(
-                    fontSize: 14,
-                    height: 1.5,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: 'Poppins',
-                  ),
-                  maxLines: 3,
-                  textAlign: TextAlign.center,
+                const CustomTexfield(
+                  txt:
+                      'Lorem ipsum dolor sit amet, consectetur \nadipiscing elit. Aenean est elit, lobortis a mattis\n vel, aliquet ut ligula.',
+                  fontSize: 14,
+                  mxLines: 3,
+                  fontWeight: FontWeight.w400,
                 ),
-                const SizedBox(height: 25),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(145, 38),
-                    backgroundColor: kPrimaryColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                  ),
-                  child: const Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Get Started',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                      Icon(
-                        Icons.trending_flat,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
-                ),
+                const SizedBox(height: 35),
+                const CustomButton(),
               ],
             ),
           ),
-          Positioned(
-            top: 180,
-            right: 152,
-            left: 89,
-            child: Image.asset(
-              'assets/images/8b2ab94ac0968fa20e185a3eced948a8.png',
-              width: 200,
-              height: 375,
-            ),
-          )
+          const CustomVictorImage(),
         ],
       ),
     );
