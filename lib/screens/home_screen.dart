@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../components/custom_appbar.dart';
+import '../components/custom_searchbar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -39,22 +40,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  SizedBox(
-                    width: 260,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        fillColor: Color(0xFFE6E6E6),
-                        label: Text('Search'),
-                        labelStyle: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Poppins',
-                          color: Colors.black,
-                        ),
-                        floatingLabelAlignment: FloatingLabelAlignment.start,
-                      ),
-                    ),
-                  )
+                  CustomSearchBar(),
                 ],
               ),
             ),
