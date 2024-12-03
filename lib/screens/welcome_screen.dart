@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notify/components/custom_texfield.dart';
+import 'package:notify/helpers/constatns.dart';
+import 'package:notify/components/custom_shape.dart';
 
-import '../components/custom_victor_image.dart';
 import '../components/custom_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -15,33 +16,40 @@ class WelcomeScreen extends StatelessWidget {
           Container(
             height: double.infinity,
             color: const Color(0xFFF6F6F6),
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                    'assets/images/a3fd26bf-1396-47af-8ca2-dd46631815c8.jpg'),
-                const SizedBox(height: 70),
-                const CustomTexfield(
+                CustomShape(),
+                SizedBox(height: 70),
+                CustomTexfield(
                   txt: 'Create free notes & collaborate \nwith your team',
                   fontSize: 20,
                   mxLines: 2,
                   fontWeight: FontWeight.w600,
                 ),
-                const SizedBox(height: 20),
-                const CustomTexfield(
+                SizedBox(height: 20),
+                CustomTexfield(
                   txt:
                       'Lorem ipsum dolor sit amet, consectetur \nadipiscing elit. Aenean est elit, lobortis a mattis\n vel, aliquet ut ligula.',
                   fontSize: 14,
                   mxLines: 3,
                   fontWeight: FontWeight.w400,
                 ),
-                const SizedBox(height: 35),
-                const CustomButton(),
+                SizedBox(height: 35),
+                CustomButton(),
               ],
             ),
           ),
-          const CustomVictorImage(),
+          Positioned(
+            top: MediaQuery.of(context).size.height / 7,
+            left: MediaQuery.of(context).size.width / 5,
+            right: MediaQuery.of(context).size.width / 5,
+            child: Image.asset(
+              kVictorImage,
+              height: 500,
+            ),
+          ),
         ],
       ),
     );

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'screens/welcome_screen.dart';
 
-// [To Do] Custom Painter WallPaper Screen
 void main() {
   runApp(const Notify());
 }
