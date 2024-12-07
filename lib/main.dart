@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/test.dart';
 import 'screens/welcome_screen.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class Notify extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const WelcomeScreen(),
+      // home: const WelcomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
