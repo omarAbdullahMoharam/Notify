@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../components/custom_appbar.dart';
-import '../components/custom_searchbar.dart';
+import 'custom_appbar.dart';
+import 'custom_searchbar.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class CustomHeader extends StatelessWidget {
+  const CustomHeader({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Padding(
+    return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -47,6 +48,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-    ));
+    );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../helpers/constatns.dart';
-import '../screens/home_screen.dart';
+import '../View/screens/home_screen.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({

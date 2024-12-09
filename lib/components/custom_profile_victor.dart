@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 
 class CustomProfileVictor extends StatelessWidget {
   const CustomProfileVictor({
+    this.width,
+    this.height,
     super.key,
   });
-
+  final double? width, height;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 105,
+      width: width ?? 100,
+      height: height ?? 105,
       alignment: Alignment.center,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
