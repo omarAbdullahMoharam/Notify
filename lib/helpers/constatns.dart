@@ -6,4 +6,7 @@ String kNotesBox = 'Notes_box';
 
 List<Color> kColorList = const [
   Color(0xFFBFE5FA),
+  Color(0xFFFAD1BF),
+  Color(0xFFFAF4BF),
+  Color(0xFFD1F6D4),
 ];
