@@ -5,7 +5,7 @@ import 'package:notify/View/screens/add_note.dart';
 import '../../components/navigators/add_note.dart';
 import '../../components/navigators/home_nav.dart';
 import '../../components/navigators/person_nav.dart';
-import 'notes_screen.dart';
+import 'home_screen_body.dart';
 import '../profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
-    const NotesScreen(),
+    const HomeScreenBody(),
     const AddNote(),
     const ProfileScreen(),
   ];

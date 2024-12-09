@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../components/custom_header.dart';
 import '../../components/custom_note_card.dart';
 
-class NotesScreen extends StatelessWidget {
-  const NotesScreen({super.key});
+class HomeScreenBody extends StatelessWidget {
+  const HomeScreenBody({super.key});
 
   @override
   Widget build(BuildContext context) {
