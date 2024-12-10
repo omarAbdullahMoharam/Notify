@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'components/profile_pic.dart';
+
 class MyAccountScreen extends StatefulWidget {
   static String routeName = "/my_account";
 
@@ -12,6 +14,7 @@ class MyAccountScreen extends StatefulWidget {
 }
 
 class _MyAccountScreenState extends State<MyAccountScreen> {
+  // ignore: unused_field
   File? _profileImage;
   final ImagePicker _picker = ImagePicker();
 
@@ -41,7 +44,10 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.photo_camera),
+                leading: const Icon(
+                  Icons.photo_camera,
+                  color: Colors.grey,
+                ),
                 title: const Text('Camera'),
                 onTap: () {
                   _pickImage(ImageSource.camera);
@@ -61,52 +67,54 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
       appBar: AppBar(
         title: const Text("My Account"),
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Spacer(flex: 2),
             Center(
-              child: Stack(
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: _profileImage != null
-                        ? FileImage(_profileImage!)
-                        : const AssetImage("assets/images/download.jpg")
-                            as ImageProvider,
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    child: IconButton(
-                      icon: const Icon(Icons.camera_alt, color: Colors.blue),
-                      onPressed: () {
-                        _showPicker(context);
-                      },
-                    ),
-                  ),
-                ],
+              child: GestureDetector(
+                child: const ProfilePic(),
+                onTap: () => _showPicker(context),
               ),
             ),
+            const Spacer(flex: 6),
             const SizedBox(height: 20),
-            buildAccountInfoField("Full Name", "Hanona", Icons.person),
+            buildAccountInfoField("Full Name", "Omar Abdullah", Icons.person),
             const SizedBox(height: 20),
-            buildAccountInfoField("Email", "hanona@example.com", Icons.email),
+            buildAccountInfoField("Email", "Omar@example.com", Icons.email),
             const SizedBox(height: 20),
             buildAccountInfoField("Phone Number", "+1234567890", Icons.phone),
             const SizedBox(height: 20),
             buildAccountInfoField(
-                "Address", "123 Main Street", Icons.location_on),
-            const SizedBox(height: 20),
+              "Address",
+              "123 Main Street",
+              Icons.location_on,
+            ),
+            const Spacer(
+              flex: 12,
+            ),
             Center(
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFFF8383)),
                 onPressed: () {
                   // Function to save changes
                 },
-                child: const Text("Save Changes"),
+                child: const Text(
+                  "Save Changes",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                  ),
+                ),
               ),
             ),
+            const Spacer(
+                // flex: 1,
+                ),
           ],
         ),
       ),

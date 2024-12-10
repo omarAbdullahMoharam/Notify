@@ -11,7 +11,7 @@ class CustomHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.only(bottom: 8.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -22,7 +22,7 @@ class CustomHeader extends StatelessWidget {
           const SizedBox(height: 25),
           Container(
             height: 46,
-            width: 335,
+            width: 380,
             decoration: const BoxDecoration(
               color: Color(0xFFE6E6E6),
               borderRadius: BorderRadius.all(

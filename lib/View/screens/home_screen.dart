@@ -26,10 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: _screens[_currentIndex],
-      ),
+      body: _screens[_currentIndex],
       bottomNavigationBar: BottomAppBar(
         // shape: const CircularNotchedRectangle(),
         padding: const EdgeInsets.all(0),

@@ -24,8 +24,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             buildSectionTitle("Account"),
-            buildAccountInfoField("Full Name", "Hanona", Icons.person),
-            buildAccountInfoField("Email", "hanona@example.com", Icons.email),
+            buildAccountInfoField("Full Name", "Omar Abdullah", Icons.person),
+            buildAccountInfoField("Email", "Omar@example.com", Icons.email),
             buildAccountInfoField("Phone Number", "+1234567890", Icons.phone),
             const SizedBox(height: 20),
             buildSectionTitle("Preferences"),

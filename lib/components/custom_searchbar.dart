@@ -21,6 +21,7 @@ class CustomSearchBar extends StatelessWidget {
           ),
           floatingLabelAlignment: FloatingLabelAlignment.start,
         ),
+        textAlign: TextAlign.start,
       ),
     );
   }
