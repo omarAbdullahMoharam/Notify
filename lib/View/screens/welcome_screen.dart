@@ -3,7 +3,8 @@ import 'package:notify/components/custom_texfield.dart';
 import 'package:notify/helpers/constatns.dart';
 import 'package:notify/components/custom_shape.dart';
 
-import '../../components/custom_button.dart';
+import '../components/custom_victor_image.dart';
+import '../components/custom_button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
