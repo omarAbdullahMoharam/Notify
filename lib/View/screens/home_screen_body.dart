@@ -60,7 +60,7 @@ class HomeScreenBody extends StatelessWidget {
                 CustomNote(
                   title: 'hello',
                   content: 'Welcome Omar',
-                )
+                ),
               ],
             ),
           ),

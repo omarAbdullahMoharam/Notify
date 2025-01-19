@@ -27,51 +27,48 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_currentIndex],
-      bottomNavigationBar: BottomAppBar(
-        // shape: const CircularNotchedRectangle(),
-        padding: const EdgeInsets.all(0),
-        child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          items: [
-            customHomeNavigator(),
-            customAddNavigator(),
-            customPersonNavigator(),
-          ],
+      bottomNavigationBar: SafeArea(
+        child: BottomAppBar(
+          height: MediaQuery.of(context).padding.bottom + 77,
+          padding: const EdgeInsets.all(0),
+          child: BottomNavigationBar(
+            currentIndex: _currentIndex,
+            onTap: (index) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            items: [
+              customHomeNavigator(),
+              customAddNavigator(),
+              customPersonNavigator(),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: customFloatingButtonNavigator(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      // floatingActionButton: customFloatingButtonNavigator(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 
-  Stack customFloatingButtonNavigator() {
-    return Stack(
-      children: [
-        Positioned(
-          bottom: 18,
-          left: 190,
-          child: FloatingActionButton(
-            splashColor: Color(kPrimaryColor.withOpacity(0.55).value),
-            backgroundColor: Color(kPrimaryColor.value),
-            shape: const CircleBorder(),
-            onPressed: () {
-              setState(() {
-                _currentIndex = 1;
-              });
-            },
-            child: const Icon(
-              Icons.add,
-              size: 40,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ],
+  FloatingActionButton customFloatingButtonNavigator() {
+    return
+        // left: MediaQuery.of(context).size.width / 2 - 30,
+        // bottom: 18,
+        FloatingActionButton(
+      splashColor: Color(kPrimaryColor.withOpacity(0.55).value),
+      backgroundColor: Color(kPrimaryColor.value),
+      shape: const CircleBorder(),
+      onPressed: () {
+        setState(() {
+          _currentIndex = 1;
+        });
+      },
+      child: const Icon(
+        Icons.add,
+        size: 40,
+        color: Colors.white,
+      ),
     );
   }
 }

@@ -6,17 +6,21 @@ BottomNavigationBarItem customAddNavigator() {
   return BottomNavigationBarItem(
     label: '',
     backgroundColor: kPrimaryColor,
-    icon: Container(
-      width: 40,
-      height: 40,
-      decoration: const BoxDecoration(
-        // color: Color(kPrimaryColor.value),
-        shape: BoxShape.circle,
-      ),
-      child: const Icon(
-        Icons.add,
-        color: Colors.white,
-        size: 40,
+    icon: Center(
+      child: Container(
+        width: 45,
+        height: 45,
+        decoration: BoxDecoration(
+          color: Color(kPrimaryColor.value),
+          borderRadius: const BorderRadius.all(Radius.circular(40)),
+        ),
+        child: const Center(
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+            size: 40,
+          ),
+        ),
       ),
     ),
   );
