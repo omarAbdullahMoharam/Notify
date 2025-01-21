@@ -13,9 +13,9 @@ class CustomSearchBar extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           fillColor: Color(0xFFE6E6E6),
-          label: Text('Search'),
-          labelStyle: TextStyle(
-            fontSize: 20,
+          hintText: ('Search'),
+          hintStyle: TextStyle(
+            fontSize: 18,
             fontFamily: 'Poppins',
             color: Colors.black,
           ),

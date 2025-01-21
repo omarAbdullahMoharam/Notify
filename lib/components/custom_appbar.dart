@@ -13,7 +13,7 @@ class CustomAppBar extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          "Hey Chris ,\nGood Morning",
+          "Hey Omar ,\nGood Morning",
           style: TextStyle(
             color: Colors.black,
             fontSize: 30,

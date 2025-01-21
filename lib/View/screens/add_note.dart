@@ -51,55 +51,58 @@ class _AddNoteState extends State<AddNote> {
           key: formKey,
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Column(
-              spacing: 25,
-              children: [
-                CustomTitle(
-                  containerColor: containerColor,
-                  onSaved: (value) => title = value,
-                ),
-                CustomContent(
-                  containerColor: containerColor,
-                  onSaved: (value) => content = value,
-                ),
-                BlocBuilder<AddNoteCubit, AddNoteState>(
-                  builder: (context, state) {
-                    return CustomButton(
-                      containerColor: containerColor,
-                      formKey: formKey,
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          BlocProvider.of<AddNoteCubit>(context).addNote(
-                            NoteModel(
-                              title: title!,
-                              content: content!,
-                              color: containerColor.value,
-                            ),
-                          );
-                          BlocProvider.of<NotesCubitCubit>(context)
-                              .fetchAllNotes();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
-                            ),
-                          );
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Please enter a title and content'),
-                            ),
-                          );
-                          AutovalidateMode.always;
-                          setState(() {
-                            formKey.currentState!.validate();
-                          });
-                        }
-                      },
-                    );
-                  },
-                ),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                spacing: 25,
+                children: [
+                  CustomTitle(
+                    containerColor: containerColor,
+                    onSaved: (value) => title = value,
+                  ),
+                  CustomContent(
+                    containerColor: containerColor,
+                    onSaved: (value) => content = value,
+                  ),
+                  BlocBuilder<AddNoteCubit, AddNoteState>(
+                    builder: (context, state) {
+                      return CustomButton(
+                        containerColor: containerColor,
+                        formKey: formKey,
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            BlocProvider.of<AddNoteCubit>(context).addNote(
+                              NoteModel(
+                                title: title!,
+                                content: content!,
+                                color: containerColor.value,
+                              ),
+                            );
+                            BlocProvider.of<NotesCubitCubit>(context)
+                                .fetchAllNotes();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content:
+                                    Text('Please enter a title and content'),
+                              ),
+                            );
+                            AutovalidateMode.always;
+                            setState(() {
+                              formKey.currentState!.validate();
+                            });
+                          }
+                        },
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),

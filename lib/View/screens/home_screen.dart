@@ -46,16 +46,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      // floatingActionButton: customFloatingButtonNavigator(),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
   }
 
   FloatingActionButton customFloatingButtonNavigator() {
-    return
-        // left: MediaQuery.of(context).size.width / 2 - 30,
-        // bottom: 18,
-        FloatingActionButton(
+    return FloatingActionButton(
       splashColor: Color(kPrimaryColor.withOpacity(0.55).value),
       backgroundColor: Color(kPrimaryColor.value),
       shape: const CircleBorder(),
