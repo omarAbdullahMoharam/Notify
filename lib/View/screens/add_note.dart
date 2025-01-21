@@ -52,6 +52,7 @@ class _AddNoteState extends State<AddNote> {
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
               child: Column(
                 spacing: 25,
                 children: [

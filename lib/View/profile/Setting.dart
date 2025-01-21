@@ -26,7 +26,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             buildSectionTitle("Account"),
             buildAccountInfoField("Full Name", "Omar Abdullah", Icons.person),
             buildAccountInfoField("Email", "Omar@example.com", Icons.email),
-            buildAccountInfoField("Phone Number", "+1234567890", Icons.phone),
+            buildAccountInfoField(
+                "Phone Number", "+20 XXX XXX XXXX", Icons.phone),
             const SizedBox(height: 20),
             buildSectionTitle("Preferences"),
             SwitchListTile(

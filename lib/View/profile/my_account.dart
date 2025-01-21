@@ -69,8 +69,8 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Spacer(flex: 2),
             Center(
@@ -83,9 +83,10 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
             const SizedBox(height: 20),
             buildAccountInfoField("Full Name", "Omar Abdullah", Icons.person),
             const SizedBox(height: 20),
-            buildAccountInfoField("Email", "Omar@example.com", Icons.email),
+            buildAccountInfoField("Email", "Omar@gmail.com", Icons.email),
             const SizedBox(height: 20),
-            buildAccountInfoField("Phone Number", "+1234567890", Icons.phone),
+            buildAccountInfoField(
+                "Phone Number", "+20 XXX XXX XXXX", Icons.phone),
             const SizedBox(height: 20),
             buildAccountInfoField(
               "Address",
@@ -98,7 +99,8 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF8383)),
+                  backgroundColor: const Color(0xFFFF8383),
+                ),
                 onPressed: () {
                   // Function to save changes
                 },

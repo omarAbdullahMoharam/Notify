@@ -47,9 +47,10 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                     (context, index) {
                       final note = state.notes[index];
                       return (CustomNote(
-                        title: note.title,
-                        content: note.content,
-                        color: note.color,
+                        // title: note.title,
+                        // content: note.content,
+                        // color: note.color,
+                        note: note,
                       ));
                     },
                     childCount: state.notes.length,

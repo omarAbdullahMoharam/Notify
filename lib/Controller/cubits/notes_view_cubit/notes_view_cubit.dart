@@ -19,4 +19,16 @@ class NotesCubitCubit extends Cubit<NotesCubitState> {
       log(e.toString());
     }
   }
+
+  deleteNoteAt(int noteKey) async {
+    try {
+      var notesBox = Hive.box<NoteModel>(kNotesBox);
+      await notesBox.delete(noteKey);
+      fetchAllNotes();
+      emit(NotesSuccess(notesBox.values.toList()));
+    } catch (e) {
+      emit(NotesErrorState('Error Deleting note⚠️'));
+      log(e.toString());
+    }
+  }
 }
