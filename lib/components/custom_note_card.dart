@@ -10,6 +10,7 @@ class CustomNote extends StatelessWidget {
     // required this.title,
     // required this.content,
     // required this.color,
+    // required this.date,
     required this.note,
   });
   // final String title, content;
@@ -21,21 +22,26 @@ class CustomNote extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: 200,
+          width: 220,
           height: 200,
           decoration: BoxDecoration(
             color: Color(note.color),
             borderRadius: const BorderRadius.all(Radius.circular(18)),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 12, left: 18, bottom: 8),
+            padding: const EdgeInsets.only(
+              top: 12,
+              left: 12,
+              right: 4,
+              bottom: 8,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   note.title,
                   style: const TextStyle(
-                    fontSize: 32,
+                    fontSize: 28,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
                   ),
@@ -56,6 +62,18 @@ class CustomNote extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+        ),
+        Positioned(
+          left: 16,
+          bottom: 18,
+          child: Text(
+            note.date,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'Poppins',
             ),
           ),
         ),

@@ -20,11 +20,13 @@ class CustomShapePainter extends CustomPainter {
     Paint paint = Paint()
       ..color = kPrimaryColor
       ..style = PaintingStyle.fill;
+    double scaleFactor = 1;
+
     Path path = Path();
     path.moveTo(0, 0);
-    path.lineTo(size.width, 0);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height - 80);
+    path.lineTo(size.width * scaleFactor, 0);
+    path.lineTo(size.width * scaleFactor, size.height * scaleFactor);
+    path.lineTo(0, (size.height - 80) * scaleFactor);
     path.close();
 
     canvas.drawPath(path, paint);

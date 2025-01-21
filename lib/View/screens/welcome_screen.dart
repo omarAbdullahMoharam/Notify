@@ -21,7 +21,6 @@ class WelcomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomShape(),
-                SizedBox(height: 70),
                 CustomTexfield(
                   txt: 'Create free notes & collaborate \nwith your team',
                   fontSize: 20,
@@ -36,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
                   mxLines: 3,
                   fontWeight: FontWeight.w400,
                 ),
-                SizedBox(height: 35),
+                SizedBox(height: 15),
                 CustomButton(),
               ],
             ),

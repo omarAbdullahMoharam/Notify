@@ -96,6 +96,9 @@ class _MyAccountScreenState extends State<MyAccountScreen> {
             const Spacer(
               flex: 12,
             ),
+            const SizedBox(
+              height: 50,
+            ),
             Center(
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(

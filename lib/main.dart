@@ -4,7 +4,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:notify/Controller/cubits/notes_view_cubit/notes_view_cubit.dart';
 import 'package:notify/helpers/constatns.dart';
 import 'Models/note_model.dart';
-import 'View/screens/home_screen.dart';
+// import 'View/screens/home_screen.dart';
+import 'View/screens/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized;
@@ -34,8 +35,8 @@ class Notify extends StatelessWidget {
           ),
           useMaterial3: true,
         ),
-        // home: const WelcomeScreen(),
-        home: const HomeScreen(),
+        home: const WelcomeScreen(),
+        // home: const HomeScreen(),
       ),
     );
   }
