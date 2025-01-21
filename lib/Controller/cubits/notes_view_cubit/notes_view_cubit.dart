@@ -13,6 +13,10 @@ class NotesCubitCubit extends Cubit<NotesCubitState> {
     try {
       var notesBox = Hive.box<NoteModel>(kNotesBox);
       var notes = notesBox.values.toList();
+      if (notes.isEmpty) {
+        emit(NotesInitialState());
+        return;
+      }
       emit(NotesSuccess(notes));
     } catch (e) {
       emit(NotesErrorState('Error fetching notes'));
@@ -26,6 +30,9 @@ class NotesCubitCubit extends Cubit<NotesCubitState> {
       await notesBox.delete(noteKey);
       fetchAllNotes();
       emit(NotesSuccess(notesBox.values.toList()));
+      if (notesBox.isEmpty) {
+        emit(NotesInitialState());
+      }
     } catch (e) {
       emit(NotesErrorState('Error Deleting note⚠️'));
       log(e.toString());

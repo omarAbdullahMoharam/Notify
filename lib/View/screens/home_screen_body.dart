@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notify/Controller/cubits/notes_view_cubit/notes_view_cubit.dart';
+import 'package:notify/helpers/constatns.dart';
 
 import '../../components/custom_header.dart';
 import '../../components/custom_note_card.dart';
@@ -25,7 +26,29 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: BlocBuilder<NotesCubitCubit, NotesCubitState>(
         builder: (context, state) {
-          if (state is NotesSuccess) {
+          if (state is NotesInitialState) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const CustomHeader(),
+                const Spacer(),
+                Icon(
+                  Icons.delete,
+                  color: kPrimaryColor,
+                  size: MediaQuery.of(context).size.width * 0.35,
+                ),
+                const SizedBox(height: 15),
+                const Text(
+                  'No notes available',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const Spacer(),
+              ],
+            );
+          } else if (state is NotesSuccess) {
             return CustomScrollView(
               slivers: [
                 const SliverToBoxAdapter(

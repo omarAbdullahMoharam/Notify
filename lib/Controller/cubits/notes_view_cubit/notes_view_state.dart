@@ -2,6 +2,7 @@ part of 'notes_view_cubit.dart';
 
 sealed class NotesCubitState {}
 
+// EMPTY STATE
 final class NotesInitialState extends NotesCubitState {}
 
 final class NotesSuccess extends NotesCubitState {
