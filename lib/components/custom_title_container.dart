@@ -5,10 +5,11 @@ class CustomTitle extends StatelessWidget {
     super.key,
     required this.containerColor,
     required this.onSaved,
+    this.initialTitle,
   });
   void Function(String?) onSaved;
   final Color containerColor;
-
+  final String? initialTitle;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +21,7 @@ class CustomTitle extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
       ),
       child: TextFormField(
-        // initialValue: 'Title',
+        initialValue: initialTitle,
         onSaved: onSaved,
         decoration: InputDecoration(
           floatingLabelAlignment: FloatingLabelAlignment.center,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notify/Controller/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notify/Controller/cubits/edit_note/edit_note_cubit.dart';
 import 'package:notify/Controller/cubits/notes_view_cubit/notes_view_cubit.dart';
 import 'package:notify/Models/note_model.dart';
 import 'package:notify/helpers/constatns.dart';
@@ -14,14 +15,14 @@ import '../../components/custom_title_container.dart';
 import 'home_screen.dart';
 
 class AddNote extends StatefulWidget {
-  const AddNote({super.key});
-
+  const AddNote({super.key, this.note});
+  final NoteModel? note;
   @override
   State<AddNote> createState() => _AddNoteState();
 }
 
 class _AddNoteState extends State<AddNote> {
-  String? title, content;
+  late String title, content;
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +31,12 @@ class _AddNoteState extends State<AddNote> {
     GlobalKey<FormState> formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: containerColor,
+        backgroundColor:
+            widget.note == null ? containerColor : Color(widget.note!.color),
         automaticallyImplyLeading: true,
-        title: const Text('Add Note'),
+        title: widget.note == null
+            ? const Text('Add Note')
+            : const Text('Edit Note'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
@@ -48,8 +52,15 @@ class _AddNoteState extends State<AddNote> {
         ),
         elevation: 0,
       ),
-      body: BlocProvider(
-        create: (context) => AddNoteCubit(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider<AddNoteCubit>(
+            create: (context) => AddNoteCubit(),
+          ),
+          BlocProvider<EditNoteCubit>(
+            create: (context) => EditNoteCubit(),
+          ),
+        ],
         child: Form(
           autovalidateMode: AutovalidateMode.disabled,
           key: formKey,
@@ -60,50 +71,82 @@ class _AddNoteState extends State<AddNote> {
               child: Column(
                 spacing: 25,
                 children: [
-                  CustomTitle(
-                    containerColor: containerColor,
-                    onSaved: (value) => title = value,
-                  ),
-                  CustomContent(
-                    containerColor: containerColor,
-                    onSaved: (value) => content = value,
-                  ),
+                  if (widget.note != null)
+                    CustomTitle(
+                      containerColor: widget.note == null
+                          ? containerColor
+                          : Color(widget.note!.color),
+                      initialTitle: widget.note!.title,
+                      onSaved: (value) => title = value!,
+                    ),
+                  if (widget.note != null)
+                    CustomContent(
+                      containerColor: widget.note == null
+                          ? containerColor
+                          : Color(
+                              widget.note!.color,
+                            ),
+                      initialContent: widget.note!.content,
+                      onSaved: (value) => content = value!,
+                    ),
+                  if (widget.note == null)
+                    CustomTitle(
+                      containerColor: containerColor,
+                      onSaved: (value) => title = value!,
+                    ),
+                  if (widget.note == null)
+                    CustomContent(
+                      containerColor: containerColor,
+                      onSaved: (value) => content = value!,
+                    ),
                   BlocBuilder<AddNoteCubit, AddNoteState>(
                     builder: (context, state) {
                       return CustomButton(
+                        snackBarMessage: widget.note == null,
                         containerColor: containerColor,
                         formKey: formKey,
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             final formattedDate =
                                 DateFormat('d MMM').format(DateTime.now());
-
-                            BlocProvider.of<AddNoteCubit>(context).addNote(
-                              NoteModel(
-                                title: title!,
-                                content: content!,
-                                color: containerColor.value,
-                                date: formattedDate,
-                              ),
-                            );
+                            formKey.currentState!.save();
+                            if (widget.note != null) {
+                              BlocProvider.of<EditNoteCubit>(context)
+                                  .updateNote(
+                                NoteModel(
+                                  title: title,
+                                  content: content,
+                                  color: containerColor.value,
+                                  date: formattedDate,
+                                ),
+                                widget.note!.key,
+                              );
+                            } else {
+                              BlocProvider.of<AddNoteCubit>(context).addNote(
+                                NoteModel(
+                                  title: title,
+                                  content: content,
+                                  color: containerColor.value,
+                                  date: formattedDate,
+                                ),
+                              );
+                            }
                             BlocProvider.of<NotesCubitCubit>(context)
                                 .fetchAllNotes();
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HomeScreen(),
-                              ),
+                            Future.delayed(
+                              const Duration(milliseconds: 500),
+                              () {
+                                if (mounted) {
+                                  Navigator.push(
+                                    // ignore: use_build_context_synchronously
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const HomeScreen(),
+                                    ),
+                                  );
+                                }
+                              },
                             );
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content:
-                                    Text('Please enter a title and content'),
-                              ),
-                            );
-                            AutovalidateMode.always;
-                            formKey.currentState!.validate();
-                            setState(() {});
                           }
                         },
                       );

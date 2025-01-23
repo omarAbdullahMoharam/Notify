@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notify/Controller/cubits/edit_note/edit_note_cubit.dart';
 import 'package:notify/Controller/cubits/notes_view_cubit/notes_view_cubit.dart';
 
 import '../../components/custom_header.dart';

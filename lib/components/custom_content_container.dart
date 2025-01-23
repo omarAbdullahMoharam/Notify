@@ -5,9 +5,11 @@ class CustomContent extends StatefulWidget {
     super.key,
     required this.containerColor,
     required this.onSaved,
+    this.initialContent,
   });
   void Function(String?) onSaved;
   final Color containerColor;
+  final String? initialContent;
 
   @override
   State<CustomContent> createState() => _CustomContentState();
@@ -25,6 +27,7 @@ class _CustomContentState extends State<CustomContent> {
         borderRadius: BorderRadius.circular(24),
       ),
       child: TextFormField(
+        initialValue: widget.initialContent,
         onSaved: widget.onSaved,
         maxLines: 10,
         decoration: InputDecoration(
