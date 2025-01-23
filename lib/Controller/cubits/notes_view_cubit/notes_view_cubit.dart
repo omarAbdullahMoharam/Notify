@@ -14,6 +14,7 @@ class NotesCubitCubit extends Cubit<NotesCubitState> {
       var notesBox = Hive.box<NoteModel>(kNotesBox);
       var notes = notesBox.values.toList();
       if (notes.isEmpty) {
+        log("messages: 'No notes available'");
         emit(NotesInitialState());
         return;
       }
@@ -31,6 +32,7 @@ class NotesCubitCubit extends Cubit<NotesCubitState> {
       fetchAllNotes();
       emit(NotesSuccess(notesBox.values.toList()));
       if (notesBox.isEmpty) {
+        notesBox.clear();
         emit(NotesInitialState());
       }
     } catch (e) {

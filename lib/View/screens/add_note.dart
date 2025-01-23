@@ -8,7 +8,7 @@ import 'package:notify/Controller/cubits/edit_note/edit_note_cubit.dart';
 import 'package:notify/Controller/cubits/notes_view_cubit/notes_view_cubit.dart';
 import 'package:notify/Models/note_model.dart';
 import 'package:notify/helpers/constatns.dart';
-
+import '../../components/custom_color_palette.dart';
 import '../../components/custom_content_container.dart';
 import '../../components/custom_save_button.dart';
 import '../../components/custom_title_container.dart';
@@ -24,10 +24,18 @@ class AddNote extends StatefulWidget {
 class _AddNoteState extends State<AddNote> {
   late String title, content;
 
+  late Color containerColor;
+  @override
+  void initState() {
+    containerColor = kColorList[Random().nextInt(kColorList.length)];
+    if (widget.note != null) {
+      containerColor = Color(widget.note!.color);
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    Color containerColor = kColorList[Random().nextInt(kColorList.length)];
-
     GlobalKey<FormState> formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
@@ -69,7 +77,7 @@ class _AddNoteState extends State<AddNote> {
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
-                spacing: 25,
+                spacing: 10,
                 children: [
                   if (widget.note != null)
                     CustomTitle(
@@ -99,6 +107,14 @@ class _AddNoteState extends State<AddNote> {
                       containerColor: containerColor,
                       onSaved: (value) => content = value!,
                     ),
+                  ScrollableColorsPallet(
+                    containerColor: containerColor,
+                    onColorSelected: (color) {
+                      setState(() {
+                        containerColor = color;
+                      });
+                    },
+                  ),
                   BlocBuilder<AddNoteCubit, AddNoteState>(
                     builder: (context, state) {
                       return CustomButton(

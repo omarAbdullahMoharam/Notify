@@ -45,7 +45,7 @@ class _CustomButtonState extends State<CustomButton> {
               content: const Text(
                 'Please enter a Title and Content',
               ),
-              duration: const Duration(seconds: 2),
+              duration: const Duration(seconds: 3),
               shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(24),
               ),

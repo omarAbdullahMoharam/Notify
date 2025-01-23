@@ -29,7 +29,6 @@ class CustomNote extends StatelessWidget {
             ),
           ),
         );
-        // BlocProvider.of<NotesCubitCubit>(context).updateNoteAt(note.key);
       },
       child: Stack(
         children: [
@@ -101,6 +100,7 @@ class CustomNote extends StatelessWidget {
                   action: () {
                     BlocProvider.of<NotesCubitCubit>(context)
                         .deleteNoteAt(note.key);
+                    BlocProvider.of<NotesCubitCubit>(context).fetchAllNotes();
                     Navigator.of(context).pop();
                   },
                 );
