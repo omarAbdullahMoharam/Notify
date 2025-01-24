@@ -65,17 +65,21 @@ Check out the complete app design:
 
 ## Screenshots
 
-| Screen | Image |
-|--------|-------|
-| **Splash Screen** | ![Splash Screen](Splash.jpg) |
-| **Welcome Screen** | ![Welcome Screen](Welcome.jpg) |
-| **Home Screen** | ![Home Screen](Home.jpg) |
-| **Add Note Screen** | ![Add Note](Add_Note.jpg) |
-| **Edit Note Screen** | ![Edit Note](Edit_Note.jpg) |
-| **Profile Screen** | ![Profile Screen](Profile.jpg) |
-| **Account Screen** | ![Account Screen](Account.jpg) |
-| **Settings Screen** | ![Settings Screen](Settings.jpg) |
-| **Help Screen** | ![Help Screen](Help.jpg) |
+<table>
+<tr>
+<td><img src="Splash.jpg" alt="Splash Screen" width="150"/><br/>Splash Screen</td>
+<td><img src="Welcome.jpg" alt="Welcome Screen" width="150"/><br/>Welcome Screen</td>
+<td><img src="Home.jpg" alt="Home Screen" width="150"/><br/>Home Screen</td>
+<td><img src="Add_Note.jpg" alt="Add Note Screen" width="150"/><br/>Add Note Screen</td>
+<td><img src="Edit_Note.jpg" alt="Edit Note Screen" width="150"/><br/>Edit Note Screen</td>
+</tr>
+<tr>
+<td><img src="Profile.jpg" alt="Profile Screen" width="150"/><br/>Profile Screen</td>
+<td><img src="Account.jpg" alt="Account Screen" width="150"/><br/>Account Screen</td>
+<td><img src="Settings.jpg" alt="Settings Screen" width="150"/><br/>Settings Screen</td>
+<td><img src="Help.jpg" alt="Help Screen" width="150"/><br/>Help Screen</td>
+</tr>
+</table>
 
 ## Contribution
 
