@@ -3,19 +3,27 @@ flutter_native_splash:
   color: "#FF8383"
   #background_image: "assets/background.png"
 
-  image: assets/images/note_splash_1.png
+  # image: assets/images/note_splash_1.png
+  # image: assets/images/design.png
+  image: assets/images/splash_purple.png
 
   # The branding property allows you to specify an image used as branding in the splash screen.
   # It must be a png file. It is supported for Android, iOS and the Web.  For Android 12,
   # see the Android 12 section below.
-  #branding: assets/dart.png
+
+  # 🔻🔻🔻Branding LOGO🔻🔻🔻
+  branding: assets/images/Notify_2.png
 
   # To position the branding image at the bottom of the screen you can use bottom, bottomRight,
   # and bottomLeft. The default values is bottom if not specified or specified something else.
-  #branding_mode: bottom
+
+  # 🔻🔻🔻Branding LOGO🔻🔻🔻
+  branding_mode: bottom
   
   # Set the branding padding from the bottom of the screen.  The default value is 0
-  # branding_bottom_padding: 24
+  
+  # 🔻🔻🔻Branding LOGO🔻🔻🔻
+  branding_bottom_padding: 60
 
   # The color_dark, background_image_dark, image_dark, branding_dark are parameters that set the background
   # and image when the device is in dark mode. If they are not specified, the app will use the
@@ -40,16 +48,21 @@ flutter_native_splash:
     # 768 pixels in diameter.  To fit a 1152x1152 image within a circle with a 768 diameter, simply 
     # ensure that the most important design elements of your image are placed within a circular area
     # with a 768 diameter at the center of the 1152x1152 canvas.
-    image: assets/images/note_splash_1.png
+    # image: assets/images/note_splash_1.png
+    # image: assets/images/design.png
+    image: assets/images/splash_purple.png
 
     # Splash screen background color.
     color: "#FF8383"
+
 
     # App icon background color.
     #icon_background_color: "#111111"
 
     # The branding property allows you to specify an image used as branding in the splash screen.
-    #branding: assets/dart.png
+ 
+    # 🔻🔻🔻Branding LOGO🔻🔻🔻
+    branding: assets/images/Notify_2.png
 
     # The image_dark, color_dark, icon_background_color_dark, and branding_dark set values that
     # apply when the device is in dark mode. If they are not specified, the app will use the
@@ -85,10 +98,10 @@ flutter_native_splash:
   #background_image_web: "assets/background-web.png"
   #background_image_dark_web: "assets/dark-background-web.png"
   #branding_android: assets/brand-android.png
-  #branding_bottom_padding_android: 24
+  # branding_bottom_padding_android: 80
   #branding_dark_android: assets/dart_dark-android.png
   #branding_ios: assets/brand-ios.png
-  #branding_bottom_padding_ios: 24
+  # branding_bottom_padding_ios: 80
   #branding_dark_ios: assets/dart_dark-ios.png
   #branding_web: assets/brand-web.gif
   #branding_dark_web: assets/dart_dark-web.gif
