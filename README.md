@@ -34,7 +34,7 @@ The project uses **Cubit** for state management:
 
 ## App Design
 
-Check out the complete app design:  
+Check out the complete app design:   
 [View Design on Figma](https://www.figma.com/design/rVyIml5y6m3W11At6xVwNZ/Notes-App-(Community)?m=auto&t=bQFqtKLK45Jf07vn-6)
 
 ## Getting Started
@@ -65,18 +65,17 @@ Check out the complete app design:
 
 ## Screenshots
 
-Add your app screenshots here:
-
-- **Splash Screen**:![Splash Screen](Splash.jpg)
-- **Welcome Screen**:![Welcome Screen](Welcome.jpg)
-- **Home Screen**:![Home Screen](Home.jpg)
-- **Add Note Screen**:![Add Note](Add_Note.jpg)
-- **Edit Note Screen**:![Edit Note](Edit_Note.jpg)
-- **Profile Screen**:![Profile Screen](Profile.jpg)
-- **Account Screen**:![Account Screen](Account.jpg)
-- **Settings Screen**:![Settings Screen](Settings.jpg)
-- **Help Screen**:![Help Screen](Help.jpg)
-
+| Screen | Image |
+|--------|-------|
+| **Splash Screen** | ![Splash Screen](Splash.jpg) |
+| **Welcome Screen** | ![Welcome Screen](Welcome.jpg) |
+| **Home Screen** | ![Home Screen](Home.jpg) |
+| **Add Note Screen** | ![Add Note](Add_Note.jpg) |
+| **Edit Note Screen** | ![Edit Note](Edit_Note.jpg) |
+| **Profile Screen** | ![Profile Screen](Profile.jpg) |
+| **Account Screen** | ![Account Screen](Account.jpg) |
+| **Settings Screen** | ![Settings Screen](Settings.jpg) |
+| **Help Screen** | ![Help Screen](Help.jpg) |
 
 ## Contribution
 
